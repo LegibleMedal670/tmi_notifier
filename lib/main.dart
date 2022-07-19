@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,58 +20,33 @@ class _MyAppState extends State<MyApp> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: PageView(
-        controller: pageViewController,
-        scrollDirection: Axis.vertical,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage('https://my-lingo.com/image/A1061.png')),
-            ),
-            child: Center(
-              child: Text(
-                '알고 계셨나요? \n 대박대박12132',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+      home: Scaffold(
+        body: PageView(
+          controller: pageViewController,
+          scrollDirection: Axis.vertical,
+          children: [
+            Container(
+              color: Colors.black,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('알고 계셨나요?',style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0
+                    ),),
+                    Text('이곳에 내용을 받아서 넣어줄것 \nddd', style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.0
+                    ),)
+                  ],
+                ),
               ),
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage('https://my-lingo.com/image/A1061.png')),
-            ),
-            child: Center(
-              child: Text(
-                '알고 계셨나요? \n 대박대박12132',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-            ),
-          ),Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage('https://my-lingo.com/image/A1061.png')),
-            ),
-            child: Center(
-              child: Text(
-                '알고 계셨나요? \n 대박대박12132',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    fontSize: 50.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
